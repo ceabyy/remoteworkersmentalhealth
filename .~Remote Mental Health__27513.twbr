@@ -84,6 +84,15 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column datatype='string' name='[Feature]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;Hours_Worked_Per_Week&quot;' value='Hours Worked Per Week' />
+          <alias key='&quot;Internet_Issues_Frequency&quot;' value='Internet Issues Frequency' />
+          <alias key='&quot;Mental_Health_Status&quot;' value='Mental Health Status' />
+          <alias key='&quot;Remote_Setup_Satisfaction&quot;' value='Remote Setup Satisfaction' />
+          <alias key='&quot;Work_Mode&quot;' value='Work Mode' />
+        </aliases>
+      </column>
       <column caption='feature_importances.csv' datatype='table' name='[__tableau_internal_object_id__].[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]' role='measure' type='quantitative' />
       <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
         <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/fb/94bfm1js7wlfl7v44zqk8g0h0000gn/T/tableau-temp/#TableauTemp_1tzenbx17p9v9u1bwg55j1uo9r4n.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/18/2026 08:56:17 AM' username='tableau_internal_user'>
@@ -922,7 +931,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run fontalignment='1' fontname='Helvetica'>Contribution of each factor to Worker Burnout</run>
+            <run bold='true' fontalignment='1' fontcolor='#b07aa1' fontname='Helvetica'>Contribution of each factor to Worker Burnout</run>
             <run fontalignment='1'>Æ&#10;</run>
           </formatted-text>
         </title>
@@ -933,7 +942,15 @@
             <datasource caption='feature_importances' name='federated.1x59hj30xff1ic199o66o134bwt8' />
           </datasources>
           <datasource-dependencies datasource='federated.1x59hj30xff1ic199o66o134bwt8'>
-            <column datatype='string' name='[Feature]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Feature]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;Hours_Worked_Per_Week&quot;' value='Hours Worked Per Week' />
+                <alias key='&quot;Internet_Issues_Frequency&quot;' value='Internet Issues Frequency' />
+                <alias key='&quot;Mental_Health_Status&quot;' value='Mental Health Status' />
+                <alias key='&quot;Remote_Setup_Satisfaction&quot;' value='Remote Setup Satisfaction' />
+                <alias key='&quot;Work_Mode&quot;' value='Work Mode' />
+              </aliases>
+            </column>
             <column datatype='real' name='[Importance]' role='measure' type='quantitative' />
             <column-instance column='[Feature]' derivation='None' name='[none:Feature:nk]' pivot='key' type='nominal' />
             <column-instance column='[Importance]' derivation='Sum' name='[sum:Importance:qk]' pivot='key' type='quantitative' />
@@ -943,9 +960,20 @@
         <style>
           <style-rule element='cell'>
             <format attr='width' field='[federated.1x59hj30xff1ic199o66o134bwt8].[none:Feature:nk]' value='161' />
+            <format attr='color' data-class='subtotal' value='#b07aa1' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='color' data-class='subtotal' value='#b07aa1' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-orientation' field='[federated.1x59hj30xff1ic199o66o134bwt8].[none:Feature:nk]' value='-90' />
           </style-rule>
           <style-rule element='table'>
             <format attr='background-color' value='#fbf7fb' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='color' value='#b07aa1' />
+            <format attr='font-weight' value='bold' />
           </style-rule>
           <style-rule element='gridline'>
             <format attr='line-visibility' value='on' />
@@ -961,7 +989,8 @@
             <mark class='Automatic' />
             <style>
               <style-rule element='mark'>
-                <format attr='mark-color' value='#d4a6c8' />
+                <format attr='mark-color' value='#a9e0de' />
+                <format attr='mark-transparency' value='255' />
               </style-rule>
               <style-rule element='pane'>
                 <format attr='minwidth' value='-1' />
@@ -1029,6 +1058,9 @@
           <style-rule element='table'>
             <format attr='background-color' value='#f3ebf3' />
           </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
           <style-rule element='refline'>
             <format attr='fill-above' id='refline0' value='#00000000' />
             <format attr='fill-below' id='refline0' value='#00000000' />
@@ -1082,14 +1114,13 @@
     </worksheet>
   </worksheets>
   <dashboards>
-    <dashboard enable-sort-zone-taborder='true' name='Dashboard 1'>
+    <dashboard enable-sort-zone-taborder='true' name='Dashboard'>
       <layout-options>
         <title>
           <formatted-text>
-            <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>An Analysis of </run>
+            <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>An Analysis of Remote </run>
             <run fontalignment='1'>Æ&#10;</run>
-            <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>Remote Workers&apos; Welfare</run>
-            <run fontalignment='1'>Æ&#10;</run>
+            <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>Workers&apos; Welfare and Burnout</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -1097,20 +1128,79 @@
       <size sizing-mode='automatic' />
       <zones>
         <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
-          <zone h='49066' id='14' param='horz' type-v2='layout-flow' w='50731' x='615' y='933'>
-            <zone h='49066' id='10' param='vert' type-v2='layout-flow' w='33513' x='615' y='933'>
-              <zone h='7234' id='11' type-v2='title' w='33513' x='615' y='933'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
-                  <format attr='margin' value='4' />
-                  <format attr='background-color' value='#f7f1f6' />
-                </zone-style>
+          <zone h='55309' id='35' is-fixed='true' type-v2='layout-basic' w='55341' x='615' y='933'>
+            <zone h='55309' id='14' param='horz' type-v2='layout-flow' w='39994' x='615' y='933'>
+              <zone h='55309' id='10' param='vert' type-v2='layout-flow' w='39994' x='615' y='933'>
+                <zone fixed-size='68' h='8868' id='11' is-fixed='true' type-v2='title' w='39994' x='615' y='933'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
+                    <format attr='margin' value='4' />
+                    <format attr='background-color' value='#f7f1f6' />
+                  </zone-style>
+                </zone>
+                <zone h='46441' id='12' name='Burnout Score vs. Hours Worked/wk' w='39994' x='615' y='9801'>
+                  <layout-cache minheight='215' minwidth='159' type-h='scalable' type-w='scalable' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='10' />
+                    <format attr='margin' value='4' />
+                    <format attr='background-color' value='#f3ebf3' />
+                  </zone-style>
+                </zone>
               </zone>
-              <zone h='41832' id='12' name='Burnout Score vs. Hours Worked/wk' w='33513' x='615' y='8167'>
-                <layout-cache minheight='215' minwidth='159' type-h='scalable' type-w='scalable' />
+            </zone>
+            <zone h='55309' id='36' param='horz' type-v2='layout-flow' w='15347' x='40609' y='933'>
+              <zone fixed-size='212' h='55309' id='13' is-fixed='true' param='vert' type-v2='layout-flow' w='15347' x='40609' y='933'>
+                <zone fixed-size='83' h='10618' id='15' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' pane-specification-id='4' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='color' w='15347' x='40609' y='933'>
+                  <zone-style>
+                    <format attr='border-color' value='#d4a6c8' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='3' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
+                    <format attr='margin' value='4' />
+                    <format attr='background-color' value='#fbf7fb' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='60' h='7934' id='16' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='highlighter' w='15347' x='40609' y='11551'>
+                  <zone-style>
+                    <format attr='border-color' value='#d4a6c8' />
+                    <format attr='border-style' value='solid' />
+                    <format attr='border-width' value='3' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
+                    <format attr='margin' value='4' />
+                    <format attr='background-color' value='#f3ebf3' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='221' forceUpdate='true' h='26721' id='19' is-fixed='true' type-v2='text' w='15347' x='40609' y='19485'>
+                  <formatted-text>
+                    <run fontcolor='#b07aa1'>Based off of the trend lines, it can be seen that </run>
+                    <run bold='true' fontcolor='#b07aa1'>remote workers are less likely to burn out over longer working hours</run>
+                    <run fontcolor='#b07aa1'>. The opposite effect is seen for Onsite Workers.</run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#b07aa1'>However, </run>
+                    <run bold='true' fontcolor='#b07aa1'>hybrid workers tend to have a lower average burnout score</run>
+                    <run fontcolor='#b07aa1'> past a normal number (40) of hours worked.</run>
+                    <run>Æ&#10;&#10;&#10;</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                  </zone-style>
+                </zone>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='42825' id='25' is-fixed='true' type-v2='layout-basic' w='55341' x='615' y='56242'>
+            <zone h='42825' id='20' param='horz' type-v2='layout-flow' w='40035' x='615' y='56242'>
+              <zone h='42825' id='22' name='Regions &amp; Work Life Balance' w='40035' x='615' y='56242'>
+                <layout-cache cell-count-w='7' minheight='152' non-cell-size-w='52' type-h='scalable' type-w='cell' />
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1121,72 +1211,21 @@
                 </zone-style>
               </zone>
             </zone>
-            <zone fixed-size='224' h='49066' id='13' is-fixed='true' param='vert' type-v2='layout-flow' w='17218' x='34128' y='933'>
-              <zone fixed-size='83' h='10618' id='15' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' pane-specification-id='4' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='color' w='17218' x='34128' y='933'>
+            <zone h='42825' id='26' param='vert' type-v2='layout-flow' w='15306' x='40650' y='56242'>
+              <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='15306' x='40650' y='56242'>
                 <zone-style>
-                  <format attr='border-color' value='#d4a6c8' />
-                  <format attr='border-style' value='solid' />
-                  <format attr='border-width' value='3' />
-                  <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
                   <format attr='margin' value='4' />
-                  <format attr='background-color' value='#fbf7fb' />
                 </zone-style>
               </zone>
-              <zone fixed-size='60' h='7934' id='16' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='highlighter' w='17218' x='34128' y='11551'>
-                <zone-style>
-                  <format attr='border-color' value='#d4a6c8' />
-                  <format attr='border-style' value='solid' />
-                  <format attr='border-width' value='3' />
-                  <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='5' />
-                  <format attr='margin' value='4' />
-                  <format attr='background-color' value='#f3ebf3' />
-                </zone-style>
-              </zone>
-              <zone fixed-size='221' forceUpdate='true' h='26721' id='19' is-fixed='true' type-v2='text' w='17218' x='34128' y='19485'>
+              <zone forceUpdate='true' h='24737' id='27' type-v2='text' w='15306' x='40650' y='69660'>
                 <formatted-text>
-                  <run bold='true' fontcolor='#b07aa1'>Based off of the trend lines, it can be seen that Remote workers are less likely to burn out over longer working hours. The opposite effect is seen for Onsite Workers.</run>
+                  <run bold='true' fontcolor='#b07aa1'>Use the toggles above to toggle the work setup type (i.e. Remote, Hybrid, Onsite). </run>
                   <run>Æ&#10;&#10;</run>
-                  <run bold='true' fontcolor='#b07aa1'>However, hybrid workers tend to have a lower average burnout score past a normal number (40) of hours worked.</run>
-                  <run>Æ&#10;&#10;&#10;</run>
-                </formatted-text>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-            </zone>
-          </zone>
-          <zone h='49068' id='25' is-fixed='true' type-v2='layout-basic' w='50731' x='615' y='49999'>
-            <zone h='49068' id='20' param='horz' type-v2='layout-flow' w='36701' x='615' y='49999'>
-              <zone h='49068' id='22' name='Regions &amp; Work Life Balance' w='36701' x='615' y='49999'>
-                <layout-cache cell-count-w='7' minheight='172' non-cell-size-w='52' type-h='scalable' type-w='cell' />
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='10' />
-                  <format attr='margin' value='4' />
-                  <format attr='background-color' value='#f3ebf3' />
-                </zone-style>
-              </zone>
-            </zone>
-            <zone h='49068' id='26' param='vert' type-v2='layout-flow' w='14030' x='37316' y='49999'>
-              <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
-                <zone-style>
-                  <format attr='border-color' value='#000000' />
-                  <format attr='border-style' value='none' />
-                  <format attr='border-width' value='0' />
-                  <format attr='margin' value='4' />
-                </zone-style>
-              </zone>
-              <zone h='26721' id='27' type-v2='text' w='14030' x='37316' y='63417'>
-                <formatted-text>
-                  <run bold='true' fontcolor='#b07aa1'>Use the toggles above to toggle the work setup type (i.e. Remote, Hybrid, Onsite). 
-</run>
-                  <run>Æ&#10;</run>
-                  <run bold='true' fontcolor='#b07aa1'>Remote has the highest average work life balance rating out of all the setups (indiscriminate of the region), with a significant difference, demonstrating that remote work arrangements provide better work life balance opportunities for employees.</run>
+                  <run fontcolor='#b07aa1'>Remote has the highest average work life balance rating out of all the setups (indiscriminate of the region), with a significant difference, demonstrating that </run>
+                  <run bold='true' fontcolor='#b07aa1'>remote work arrangements provide better work life balance opportunities for employees.</run>
                   <run>Æ&#10;</run>
                 </formatted-text>
                 <zone-style>
@@ -1198,11 +1237,13 @@
               </zone>
             </zone>
           </zone>
-          <zone h='98134' id='21' param='vert' type-v2='layout-flow' w='48039' x='51346' y='933'>
-            <zone fixed-size='181' h='21120' id='33' is-fixed='true' param='vert' type-v2='layout-flow' w='48039' x='51346' y='933'>
-              <zone h='6884' id='34' type-v2='text' w='48039' x='51346' y='933'>
+          <zone h='98134' id='21' param='vert' type-v2='layout-flow' w='43429' x='55956' y='933'>
+            <zone fixed-size='181' h='21120' id='33' is-fixed='true' param='vert' type-v2='layout-flow' w='43429' x='55956' y='933'>
+              <zone fixed-size='141' forceUpdate='true' h='17386' id='34' is-fixed='true' type-v2='text' w='43429' x='55956' y='933'>
                 <formatted-text>
-                  <run>After putting the data through a machine learning model (Random Forest Classifier), the model concludes that the factors that contribute most to worker burnout are the hours worked per week, and the remote setup satisfaction.</run>
+                  <run fontcolor='#b07aa1'>After putting the data through a machine learning model (Random Forest Classifier), the model concludes that the </run>
+                  <run bold='true' fontcolor='#b07aa1'>factors that contribute most to worker burnout are the hours worked per week, and the remote setup satisfaction. </run>
+                  <run fontcolor='#b07aa1'>The classifier also notes that work mode is the least significant factor for worker burnout.</run>
                 </formatted-text>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
@@ -1212,13 +1253,15 @@
                 </zone-style>
               </zone>
             </zone>
-            <zone h='77014' id='32' name='Feature Importances for Burnout ' w='48039' x='51346' y='22053'>
-              <layout-cache cell-count-w='5' minheight='176' non-cell-size-w='63' type-h='scalable' type-w='cell' />
+            <zone h='77014' id='32' name='Feature Importances for Burnout ' w='43429' x='55956' y='22053'>
+              <layout-cache cell-count-w='5' minheight='296' non-cell-size-w='63' type-h='scalable' type-w='cell' />
               <zone-style>
                 <format attr='border-color' value='#000000' />
                 <format attr='border-style' value='none' />
                 <format attr='border-width' value='0' />
+                <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='10' />
                 <format attr='margin' value='4' />
+                <format attr='background-color' value='#fbf7fb' />
               </zone-style>
             </zone>
           </zone>
@@ -1235,18 +1278,17 @@
           <layout-options>
             <title>
               <formatted-text>
-                <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>An Analysis of </run>
+                <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>An Analysis of Remote </run>
                 <run fontalignment='1'>Æ&#10;</run>
-                <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>Remote Workers&apos; Welfare</run>
-                <run fontalignment='1'>Æ&#10;</run>
+                <run bold='true' fontalignment='1' fontcolor='#a36599' fontname='Helvetica' fontsize='20'>Workers&apos; Welfare and Burnout</run>
               </formatted-text>
             </title>
           </layout-options>
-          <size maxheight='1100' minheight='1100' sizing-mode='vscroll' />
+          <size maxheight='1350' minheight='1350' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='31' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='98134' id='30' param='vert' type-v2='layout-flow' w='98770' x='615' y='933'>
-                <zone h='7234' id='11' type-v2='title' w='33513' x='615' y='933'>
+            <zone h='100000' id='40' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98134' id='39' param='vert' type-v2='layout-flow' w='98770' x='615' y='933'>
+                <zone fixed-size='68' h='8868' id='11' type-v2='title' w='39997' x='615' y='933'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1257,7 +1299,21 @@
                     <format attr='background-color' value='#f7f1f6' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='60' h='7934' id='16' name='Burnout Score vs. Hours Worked/wk' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='highlighter' w='17218' x='34128' y='8927'>
+                <zone fixed-size='141' forceUpdate='true' h='17386' id='34' type-v2='text' w='43428' x='55957' y='933'>
+                  <formatted-text>
+                    <run fontcolor='#b07aa1'>After putting the data through a machine learning model (Random Forest Classifier), the model concludes that the </run>
+                    <run bold='true' fontcolor='#b07aa1'>factors that contribute most to worker burnout are the hours worked per week, and the remote setup satisfaction. </run>
+                    <run fontcolor='#b07aa1'>The classifier also notes that work mode is the least significant factor for worker burnout.</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='60' h='7934' id='16' name='Burnout Score vs. Hours Worked/wk' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='highlighter' w='15345' x='40612' y='11551'>
                   <zone-style>
                     <format attr='border-color' value='#d4a6c8' />
                     <format attr='border-style' value='solid' />
@@ -1268,7 +1324,7 @@
                     <format attr='background-color' value='#f3ebf3' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='41832' id='12' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' w='33513' x='615' y='8167'>
+                <zone fixed-size='280' h='46442' id='12' is-fixed='true' name='Burnout Score vs. Hours Worked/wk' w='39997' x='615' y='9801'>
                   <layout-cache minheight='215' minwidth='159' type-h='scalable' type-w='scalable' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1280,7 +1336,7 @@
                     <format attr='background-color' value='#f3ebf3' />
                   </zone-style>
                 </zone>
-                <zone h='7994' id='15' name='Burnout Score vs. Hours Worked/wk' pane-specification-id='4' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='color' w='17218' x='34128' y='933'>
+                <zone fixed-size='83' h='10618' id='15' name='Burnout Score vs. Hours Worked/wk' pane-specification-id='4' param='[federated.14fqtqb0t0xbcc14yfkgo0z6qybt].[none:Work_Mode:nk]' type-v2='color' w='15345' x='40612' y='933'>
                   <zone-style>
                     <format attr='border-color' value='#d4a6c8' />
                     <format attr='border-style' value='solid' />
@@ -1291,11 +1347,15 @@
                     <format attr='background-color' value='#fbf7fb' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='219' forceUpdate='true' h='26487' id='19' type-v2='text' w='17218' x='34128' y='16861'>
+                <zone fixed-size='221' forceUpdate='true' h='26721' id='19' type-v2='text' w='15345' x='40612' y='19485'>
                   <formatted-text>
-                    <run bold='true' fontcolor='#b07aa1'>Based off of the trend lines, it can be seen that Remote workers are less likely to burn out over longer working hours. The opposite effect is seen for Onsite Workers.</run>
+                    <run fontcolor='#b07aa1'>Based off of the trend lines, it can be seen that </run>
+                    <run bold='true' fontcolor='#b07aa1'>remote workers are less likely to burn out over longer working hours</run>
+                    <run fontcolor='#b07aa1'>. The opposite effect is seen for Onsite Workers.</run>
                     <run>Æ&#10;&#10;</run>
-                    <run bold='true' fontcolor='#b07aa1'>However, hybrid workers tend to have a lower average burnout score past a normal number (40) of hours worked.</run>
+                    <run fontcolor='#b07aa1'>However, </run>
+                    <run bold='true' fontcolor='#b07aa1'>hybrid workers tend to have a lower average burnout score</run>
+                    <run fontcolor='#b07aa1'> past a normal number (40) of hours worked.</run>
                     <run>Æ&#10;&#10;&#10;</run>
                   </formatted-text>
                   <zone-style>
@@ -1306,8 +1366,20 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='49068' id='22' is-fixed='true' name='Regions &amp; Work Life Balance' w='36701' x='615' y='49999'>
-                  <layout-cache cell-count-w='7' minheight='172' non-cell-size-w='52' type-h='scalable' type-w='cell' />
+                <zone fixed-size='280' h='77014' id='32' is-fixed='true' name='Feature Importances for Burnout ' w='43428' x='55957' y='22053'>
+                  <layout-cache cell-count-w='5' minheight='296' non-cell-size-w='63' type-h='scalable' type-w='cell' />
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <_.fcp.DashboardRoundedCorners.true...format attr='corner-radius' value='10' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#fbf7fb' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='42824' id='22' is-fixed='true' name='Regions &amp; Work Life Balance' w='40037' x='615' y='56243'>
+                  <layout-cache cell-count-w='7' minheight='152' non-cell-size-w='52' type-h='scalable' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1318,12 +1390,12 @@
                     <format attr='background-color' value='#f3ebf3' />
                   </zone-style>
                 </zone>
-                <zone h='26721' id='27' type-v2='text' w='14030' x='37316' y='63417'>
+                <zone forceUpdate='true' h='24737' id='27' type-v2='text' w='15305' x='40652' y='69661'>
                   <formatted-text>
-                    <run bold='true' fontcolor='#b07aa1'>Use the toggles above to toggle the work setup type (i.e. Remote, Hybrid, Onsite). 
-</run>
-                    <run>Æ&#10;</run>
-                    <run bold='true' fontcolor='#b07aa1'>Remote has the highest average work life balance rating out of all the setups (indiscriminate of the region), with a significant difference, demonstrating that remote work arrangements provide better work life balance opportunities for employees.</run>
+                    <run bold='true' fontcolor='#b07aa1'>Use the toggles above to toggle the work setup type (i.e. Remote, Hybrid, Onsite). </run>
+                    <run>Æ&#10;&#10;</run>
+                    <run fontcolor='#b07aa1'>Remote has the highest average work life balance rating out of all the setups (indiscriminate of the region), with a significant difference, demonstrating that </run>
+                    <run bold='true' fontcolor='#b07aa1'>remote work arrangements provide better work life balance opportunities for employees.</run>
                     <run>Æ&#10;</run>
                   </formatted-text>
                   <zone-style>
@@ -1334,7 +1406,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
+                <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='15305' x='40652' y='56243'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1357,7 +1429,27 @@
       <simple-id uuid='{FD3CCD88-FE9D-4454-84C1-268F8869EA57}' />
     </dashboard>
   </dashboards>
-  <windows source-height='51'>
+  <windows show-side-pane='false' source-height='51'>
+    <window class='dashboard' maximized='true' name='Dashboard'>
+      <viewpoints>
+        <viewpoint name='Burnout Score vs. Hours Worked/wk'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Feature Importances for Burnout '>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Regions &amp; Work Life Balance'>
+          <current-page>
+            <multibucket>
+              <bucket>&quot;Remote&quot;</bucket>
+            </multibucket>
+          </current-page>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='16' />
+      <simple-id uuid='{F2B3C9D1-3C45-483C-B4BB-FEAF5AAE4464}' />
+    </window>
     <window class='worksheet' name='Burnout Score vs. Hours Worked/wk'>
       <cards>
         <edge name='left'>
@@ -1422,26 +1514,6 @@
         <default-map-tool-selection tool='2' />
       </viewpoint>
       <simple-id uuid='{1D54133E-0A26-4F19-B879-CDBE76D39232}' />
-    </window>
-    <window class='dashboard' maximized='true' name='Dashboard 1'>
-      <viewpoints>
-        <viewpoint name='Burnout Score vs. Hours Worked/wk'>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Feature Importances for Burnout '>
-          <zoom type='entire-view' />
-        </viewpoint>
-        <viewpoint name='Regions &amp; Work Life Balance'>
-          <current-page>
-            <multibucket>
-              <bucket>&quot;Remote&quot;</bucket>
-            </multibucket>
-          </current-page>
-          <zoom type='entire-view' />
-        </viewpoint>
-      </viewpoints>
-      <active id='34' />
-      <simple-id uuid='{F2B3C9D1-3C45-483C-B4BB-FEAF5AAE4464}' />
     </window>
     <window class='worksheet' name='Feature Importances for Burnout '>
       <cards>
