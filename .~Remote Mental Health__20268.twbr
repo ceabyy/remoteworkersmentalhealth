@@ -23,11 +23,135 @@
     <preference name='ui.shelf.height' value='26' />
   </preferences>
   <datasources>
+    <datasource caption='feature_importances' inline='true' name='federated.1x59hj30xff1ic199o66o134bwt8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='feature_importances' name='textscan.0f5meq60lq927x13bonx501ftnjj'>
+            <connection class='textscan' directory='/Users/ceabyfernandez/Desktop/Coding Projects/Remote Workers&apos; Mental Health' filename='feature_importances.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.0f5meq60lq927x13bonx501ftnjj' name='feature_importances.csv' table='[feature_importances#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+            <column datatype='string' name='Feature' ordinal='0' />
+            <column datatype='real' name='Importance' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[feature_importances.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;¤&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Feature</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Feature]</local-name>
+            <parent-name>[feature_importances.csv]</parent-name>
+            <remote-alias>Feature</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Importance</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Importance]</local-name>
+            <parent-name>[feature_importances.csv]</parent-name>
+            <remote-alias>Importance</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='feature_importances.csv' datatype='table' name='[__tableau_internal_object_id__].[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]' role='measure' type='quantitative' />
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/fb/94bfm1js7wlfl7v44zqk8g0h0000gn/T/tableau-temp/#TableauTemp_1tzenbx17p9v9u1bwg55j1uo9r4n.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/18/2026 08:56:17 AM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>Feature</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[Feature]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Feature</remote-alias>
+              <ordinal>0</ordinal>
+              <family>feature_importances.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>Importance</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[Importance]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>Importance</remote-alias>
+              <ordinal>1</ordinal>
+              <family>feature_importances.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='feature_importances.csv' id='feature_importances.csv_275233EC0AD64DBBA22A80E635941C3D'>
+            <properties context=''>
+              <relation connection='textscan.0f5meq60lq927x13bonx501ftnjj' name='feature_importances.csv' table='[feature_importances#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en' separator=','>
+                  <column datatype='string' name='Feature' ordinal='0' />
+                  <column datatype='real' name='Importance' ordinal='1' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='Extract' table='[Extract].[Extract]' type='table' />
+            </properties>
+          </object>
+        </objects>
+      </object-graph>
+    </datasource>
     <datasource caption='mental_health_remote_workers' inline='true' name='federated.14fqtqb0t0xbcc14yfkgo0z6qybt' version='18.1'>
       <connection class='federated'>
         <named-connections>
           <named-connection caption='mental_health_remote_workers' name='textscan.1yjns3h1k46uo01b0of38149jzr9'>
             <connection class='textscan' directory='/Users/ceabyfernandez/Desktop/Coding Projects/Remote Workers&apos; Mental Health' filename='mental_health_remote_workers.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='feature_importances' name='textscan.05npzqd04ew6ji1czqh5t0yxfa81'>
+            <connection class='textscan' directory='/Users/ceabyfernandez/Desktop/Coding Projects/Remote Workers&apos; Mental Health' filename='feature_importances.csv' password='' server='' />
           </named-connection>
         </named-connections>
         <relation connection='textscan.1yjns3h1k46uo01b0of38149jzr9' name='mental_health_remote_workers.csv' table='[mental_health_remote_workers#csv]' type='table'>
@@ -82,7 +206,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Name</remote-name>
@@ -97,7 +221,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Age</remote-name>
@@ -109,7 +233,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Gender</remote-name>
@@ -124,7 +248,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Country</remote-name>
@@ -139,7 +263,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Job_Role</remote-name>
@@ -154,7 +278,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Experience_Years</remote-name>
@@ -166,7 +290,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Work_Mode</remote-name>
@@ -181,7 +305,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Hours_Worked_Per_Week</remote-name>
@@ -193,7 +317,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Productivity_Score</remote-name>
@@ -205,7 +329,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Mental_Health_Status</remote-name>
@@ -220,7 +344,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Burnout_Score</remote-name>
@@ -232,7 +356,7 @@
             <local-type>integer</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Sleep_Hours_Per_Day</remote-name>
@@ -244,7 +368,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Exercise_Frequency</remote-name>
@@ -259,7 +383,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Work_Life_Balance_Rating</remote-name>
@@ -271,7 +395,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Has_Access_To_Therapist</remote-name>
@@ -283,7 +407,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Willing_To_Return_Onsite</remote-name>
@@ -295,7 +419,7 @@
             <local-type>boolean</local-type>
             <aggregation>Count</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Remote_Setup_Satisfaction</remote-name>
@@ -307,7 +431,7 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Internet_Issues_Frequency</remote-name>
@@ -322,7 +446,7 @@
             <width>1073741823</width>
             <contains-null>true</contains-null>
             <collation flag='0' name='LEN_RGB' />
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
           <metadata-record class='column'>
             <remote-name>Team_Communication_Effectiveness</remote-name>
@@ -334,13 +458,13 @@
             <local-type>real</local-type>
             <aggregation>Sum</aggregation>
             <contains-null>true</contains-null>
-            <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+            <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
           </metadata-record>
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
       <column caption='Burnout Score' datatype='integer' name='[Burnout_Score]' role='measure' type='quantitative' />
-      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Country1' datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
       <column caption='Employee ID' datatype='integer' name='[Employee_ID]' role='dimension' type='ordinal' />
       <column caption='Exercise Frequency' datatype='string' name='[Exercise_Frequency]' role='dimension' type='nominal' />
       <column caption='Experience Years' datatype='real' name='[Experience_Years]' role='measure' type='quantitative' />
@@ -357,10 +481,10 @@
       <column caption='Willing To Return Onsite' datatype='boolean' name='[Willing_To_Return_Onsite]' role='dimension' type='nominal' />
       <column caption='Work Life Balance Rating' datatype='real' name='[Work_Life_Balance_Rating]' role='measure' type='quantitative' />
       <column caption='Work Mode' datatype='string' name='[Work_Mode]' role='dimension' type='nominal' />
-      <column caption='mental_health_remote_workers.csv' datatype='table' name='[__tableau_internal_object_id__].[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]' role='measure' type='quantitative' />
+      <column caption='mental_health_remote_workers.csv' datatype='table' name='[__tableau_internal_object_id__].[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]' role='measure' type='quantitative' />
       <column-instance column='[Work_Mode]' derivation='None' name='[none:Work_Mode:nk]' pivot='key' type='nominal' />
-      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='false' object-id='' units='records'>
-        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/fb/94bfm1js7wlfl7v44zqk8g0h0000gn/T/tableau-temp/#TableauTemp_0jfckdw0qe9jxv186g7pu0z37vf0.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/18/2026 06:54:41 AM' username='tableau_internal_user'>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='true' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_US' class='hyper' dbname='/var/folders/fb/94bfm1js7wlfl7v44zqk8g0h0000gn/T/tableau-temp/#TableauTemp_1k1h3qe1hwv7s81d3flri1c1oxgd.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='05/18/2026 08:58:41 AM' username='tableau_internal_user'>
           <relation name='Extract' table='[Extract].[Extract]' type='table' />
           <metadata-records>
             <metadata-record class='column'>
@@ -375,7 +499,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>100</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Age</remote-name>
@@ -389,7 +513,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>27</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Gender</remote-name>
@@ -404,7 +528,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Country</remote-name>
@@ -419,7 +543,7 @@
               <approx-count>7</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Experience_Years</remote-name>
@@ -433,7 +557,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>83</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Work_Mode</remote-name>
@@ -448,7 +572,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Hours_Worked_Per_Week</remote-name>
@@ -462,7 +586,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>75</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Productivity_Score</remote-name>
@@ -476,7 +600,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>54</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Mental_Health_Status</remote-name>
@@ -491,7 +615,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Burnout_Score</remote-name>
@@ -505,7 +629,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>59</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Sleep_Hours_Per_Day</remote-name>
@@ -519,7 +643,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>40</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Exercise_Frequency</remote-name>
@@ -534,7 +658,7 @@
               <approx-count>4</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Work_Life_Balance_Rating</remote-name>
@@ -548,7 +672,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>59</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Has_Access_To_Therapist</remote-name>
@@ -562,7 +686,7 @@
               <aggregation>Count</aggregation>
               <approx-count>2</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Willing_To_Return_Onsite</remote-name>
@@ -576,7 +700,7 @@
               <aggregation>Count</aggregation>
               <approx-count>2</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Remote_Setup_Satisfaction</remote-name>
@@ -590,7 +714,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>58</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Internet_Issues_Frequency</remote-name>
@@ -605,7 +729,7 @@
               <approx-count>3</approx-count>
               <contains-null>true</contains-null>
               <collation flag='0' name='LEN_RGB' />
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
             <metadata-record class='column'>
               <remote-name>Team_Communication_Effectiveness</remote-name>
@@ -619,7 +743,7 @@
               <aggregation>Sum</aggregation>
               <approx-count>56</approx-count>
               <contains-null>true</contains-null>
-              <object-id>[mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74]</object-id>
+              <object-id>[mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D]</object-id>
             </metadata-record>
           </metadata-records>
         </connection>
@@ -628,14 +752,14 @@
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[none:Work_Mode:nk]' type='palette'>
-            <map to='#3296ed'>
+            <map to='#4ed4cd'>
+              <bucket>&quot;Remote&quot;</bucket>
+            </map>
+            <map to='#77b9f2'>
               <bucket>&quot;Onsite&quot;</bucket>
             </map>
-            <map to='#4ed4cd'>
-              <bucket>&quot;Hybrid&quot;</bucket>
-            </map>
             <map to='#c398f5'>
-              <bucket>&quot;Remote&quot;</bucket>
+              <bucket>&quot;Hybrid&quot;</bucket>
             </map>
           </encoding>
         </style-rule>
@@ -646,7 +770,7 @@
       <date-options start-of-week='monday' />
       <object-graph>
         <objects>
-          <object caption='mental_health_remote_workers.csv' id='mental_health_remote_workers.csv_351643D21CDB46EEBE72491AC8434D74'>
+          <object caption='mental_health_remote_workers.csv' id='mental_health_remote_workers.csv_E531C941671D4A5FA499557FBA55C89D'>
             <properties context=''>
               <relation connection='textscan.1yjns3h1k46uo01b0of38149jzr9' name='mental_health_remote_workers.csv' table='[mental_health_remote_workers#csv]' type='table'>
                 <columns character-set='UTF-8' header='yes' locale='en' separator=','>
@@ -794,7 +918,64 @@
       </table>
       <simple-id uuid='{B059A043-52D5-40D6-96B1-2D09C3CE9830}' />
     </worksheet>
-    <worksheet name='Sheet 3'>
+    <worksheet name='Feature Importances for Burnout '>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1' fontname='Helvetica'>Contribution of each factor to Worker Burnout</run>
+            <run fontalignment='1'>Æ&#10;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='feature_importances' name='federated.1x59hj30xff1ic199o66o134bwt8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1x59hj30xff1ic199o66o134bwt8'>
+            <column datatype='string' name='[Feature]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Importance]' role='measure' type='quantitative' />
+            <column-instance column='[Feature]' derivation='None' name='[none:Feature:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Importance]' derivation='Sum' name='[sum:Importance:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1x59hj30xff1ic199o66o134bwt8].[none:Feature:nk]' value='161' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#fbf7fb' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='line-visibility' value='on' />
+            <format attr='line-pattern-only' value='solid' />
+            <format attr='stroke-color' value='#b07aa12a' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#d4a6c8' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1x59hj30xff1ic199o66o134bwt8].[sum:Importance:qk]</rows>
+        <cols>[federated.1x59hj30xff1ic199o66o134bwt8].[none:Feature:nk]</cols>
+      </table>
+      <simple-id uuid='{96537171-D49E-4EE9-9831-5F4F7450F377}' />
+    </worksheet>
+    <worksheet name='Regions &amp; Work Life Balance'>
       <layout-options>
         <title>
           <formatted-text>
@@ -809,7 +990,7 @@
             <datasource caption='mental_health_remote_workers' name='federated.14fqtqb0t0xbcc14yfkgo0z6qybt' />
           </datasources>
           <datasource-dependencies datasource='federated.14fqtqb0t0xbcc14yfkgo0z6qybt'>
-            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Country1' datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
             <column caption='Work Life Balance Rating' datatype='real' name='[Work_Life_Balance_Rating]' role='measure' type='quantitative' />
             <column caption='Work Mode' datatype='string' name='[Work_Mode]' role='dimension' type='nominal' />
             <column-instance column='[Work_Life_Balance_Rating]' derivation='Median' name='[med:Work_Life_Balance_Rating:qk]' pivot='key' type='quantitative' />
@@ -979,7 +1160,7 @@
           </zone>
           <zone h='49068' id='25' is-fixed='true' type-v2='layout-basic' w='50731' x='615' y='49999'>
             <zone h='49068' id='20' param='horz' type-v2='layout-flow' w='36701' x='615' y='49999'>
-              <zone h='49068' id='22' name='Sheet 3' w='36701' x='615' y='49999'>
+              <zone h='49068' id='22' name='Regions &amp; Work Life Balance' w='36701' x='615' y='49999'>
                 <layout-cache cell-count-w='7' minheight='172' non-cell-size-w='52' type-h='scalable' type-w='cell' />
                 <zone-style>
                   <format attr='border-color' value='#000000' />
@@ -992,7 +1173,7 @@
               </zone>
             </zone>
             <zone h='49068' id='26' param='vert' type-v2='layout-flow' w='14030' x='37316' y='49999'>
-              <zone h='13418' id='24' name='Sheet 3' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
+              <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
                 <zone-style>
                   <format attr='border-color' value='#000000' />
                   <format attr='border-style' value='none' />
@@ -1017,7 +1198,30 @@
               </zone>
             </zone>
           </zone>
-          <zone h='98134' id='21' param='horz' type-v2='layout-flow' w='48039' x='51346' y='933' />
+          <zone h='98134' id='21' param='vert' type-v2='layout-flow' w='48039' x='51346' y='933'>
+            <zone fixed-size='181' h='21120' id='33' is-fixed='true' param='vert' type-v2='layout-flow' w='48039' x='51346' y='933'>
+              <zone h='6884' id='34' type-v2='text' w='48039' x='51346' y='933'>
+                <formatted-text>
+                  <run>After putting the data through a machine learning model (Random Forest Classifier), the model concludes that the factors that contribute most to worker burnout are the hours worked per week, and the remote setup satisfaction.</run>
+                </formatted-text>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone h='77014' id='32' name='Feature Importances for Burnout ' w='48039' x='51346' y='22053'>
+              <layout-cache cell-count-w='5' minheight='176' non-cell-size-w='63' type-h='scalable' type-w='cell' />
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='4' />
+              </zone-style>
+            </zone>
+          </zone>
           <zone-style>
             <format attr='border-color' value='#000000' />
             <format attr='border-style' value='none' />
@@ -1102,7 +1306,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='49068' id='22' is-fixed='true' name='Sheet 3' w='36701' x='615' y='49999'>
+                <zone fixed-size='280' h='49068' id='22' is-fixed='true' name='Regions &amp; Work Life Balance' w='36701' x='615' y='49999'>
                   <layout-cache cell-count-w='7' minheight='172' non-cell-size-w='52' type-h='scalable' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1130,7 +1334,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone h='13418' id='24' name='Sheet 3' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
+                <zone h='13418' id='24' name='Regions &amp; Work Life Balance' synchronized='1' type-v2='currpage' w='14030' x='37316' y='49999'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1153,7 +1357,7 @@
       <simple-id uuid='{FD3CCD88-FE9D-4454-84C1-268F8869EA57}' />
     </dashboard>
   </dashboards>
-  <windows source-height='30'>
+  <windows source-height='51'>
     <window class='worksheet' name='Burnout Score vs. Hours Worked/wk'>
       <cards>
         <edge name='left'>
@@ -1183,7 +1387,7 @@
       </cards>
       <simple-id uuid='{D07DE97B-064C-4A31-BE3F-852572847751}' />
     </window>
-    <window class='worksheet' name='Sheet 3'>
+    <window class='worksheet' name='Regions &amp; Work Life Balance'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1224,7 +1428,10 @@
         <viewpoint name='Burnout Score vs. Hours Worked/wk'>
           <zoom type='entire-view' />
         </viewpoint>
-        <viewpoint name='Sheet 3'>
+        <viewpoint name='Feature Importances for Burnout '>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Regions &amp; Work Life Balance'>
           <current-page>
             <multibucket>
               <bucket>&quot;Remote&quot;</bucket>
@@ -1233,8 +1440,31 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='21' />
+      <active id='34' />
       <simple-id uuid='{F2B3C9D1-3C45-483C-B4BB-FEAF5AAE4464}' />
+    </window>
+    <window class='worksheet' name='Feature Importances for Burnout '>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F4805B63-DBB8-4489-AB53-AF51E65FE7D9}' />
     </window>
   </windows>
 </workbook>
