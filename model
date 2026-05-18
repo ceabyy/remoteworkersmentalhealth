@@ -6,3 +6,26 @@ import sklearn as sk
 
 from sklearn.model_selection import train_test_split
 from sklearn.model import RandomForestClassifier
+from sklearn.preprocessing import LabelEncoder
+
+data = pd.read_csv('../mental_health_remote_workers.csv')
+
+# map some of the qualitative data
+data['Mental Health Rating'] = data['Mental Health Rating'].map({'Poor':0.1, 'Moderate':0.5, 'Good': 1.0, None:0.0})
+data['Internet Issues Frequency'] = data['Internet Issues Frequency'].map({'Sometimes': 0.5, 'Often': 1.0, 'Never': 0.0, None: 0.0})
+
+categories = ['Work Mode']
+labelEncoder = LabelEncoder()
+
+for cat in categories:
+    data[cat] = data[cat].le.fit_transform(data[cat])
+
+X = data['Mental Health Rating', 'Hours Worked Per Week', 'Work Mode', 'Remote Setup Satisfaction', 'Internet Issues Frequency']
+y = data['Burnout Score']
+
+y = le.fit_transform(y)
+
+# split data
+
+rf = RandomForestClassifier()
+rf.fit(X, Y)
